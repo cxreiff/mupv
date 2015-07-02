@@ -1,5 +1,8 @@
 #!/bin/bash
 
+command -v mpv >/dev/null 2>&1 || \
+{ echo >&2 "Requirement \"mpv\" not found. Aborting."; exit 1; }
+
 music_path="${HOME}/Music/iTunes/iTunes Media/Music"
 playlist_path="${HOME}/.config/mpv/mu-playlist.txt"
 
