@@ -1,6 +1,6 @@
 #mupv
 
-##a wrapper for mpv for playing audio from an iTunes Library
+##an mpv wrapper for playing audio from an iTunes Library
 
 A bash script that creates a playlist from your iTunes Library and feeds it into mpv (mpv.io).
 
