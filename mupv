@@ -11,12 +11,13 @@ is_gui='no'
 is_osc=' --no-osc'
 dimensions='300x300-16+16'
 
-while getopts ":gostkd:m:" opt; do
+while getopts ":gosftkd:m:" opt; do
   case $opt in
   	g) 	is_gui='attachment';;
 	o)	is_osc=' --osc';;
     s) 	mpv_options+=" --shuffle";;
-	t)	mpv_options+=" --ontop";;
+	f)	mpv_options+=" --ontop";;
+	t)	mpv_options+=" --no-window-dragging";;
 	k)	mpv_options+=" --input-media-keys=no";;
 	d)	dimensions="$OPTARG";;
 	m) 	mpv_options+=" $OPTARG";;

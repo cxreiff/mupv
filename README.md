@@ -16,7 +16,9 @@ There are a few options to pass into mupv (before the arguments):
 
 	( -o ) This option, if used with "-g", turns on the on-screen controller.
 
-	( -t ) This option, if used with "-g", will make the window float on top of other windows.
+	( -f ) This option, if used with "-g", will make the window float on top of other windows.
+
+	( -t ) This option, if used with "-g", will prevent dragging the window around ("HUD" style).
 
 	( -k ) This option will turn off the ability to use the macbook media keys to control mpv.
 
