@@ -27,7 +27,7 @@ done
 shift $((OPTIND - 1))
 
 IFS=""
-files=($music_path/${1:-}*/${2:-}*/*${3:-}*)
+files=($music_path/*${1:-}*/*${2:-}*/*${3:-}*)
 unset IFS
 
 printf "%s\n" "${files[@]}" > $playlist_path
