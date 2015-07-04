@@ -11,7 +11,9 @@ is_gui='no'
 is_osc=' --no-osc'
 dimensions='300x300-16+16'
 
-while getopts ":gosftkd:m:" opt; do
+IFS=""
+
+while getopts ":gosftkp:d:m:" opt; do
   case $opt in
   	g) 	is_gui='attachment';;
 	o)	is_osc=' --osc';;
@@ -19,6 +21,7 @@ while getopts ":gosftkd:m:" opt; do
 	f)	mpv_options+=" --ontop";;
 	t)	mpv_options+=" --no-window-dragging";;
 	k)	mpv_options+=" --input-media-keys=no";;
+	p)	files=($OPTARG);;
 	d)	dimensions="$OPTARG";;
 	m) 	mpv_options+=" $OPTARG";;
     \?) echo "Invalid option -$OPTARG" >&2; exit 1;;
@@ -26,8 +29,9 @@ while getopts ":gosftkd:m:" opt; do
 done
 shift $((OPTIND - 1))
 
-IFS=""
-files=($music_path/*${1:-}*/*${2:-}*/*${3:-}*)
+
+if [ -z $files ]; then files=($music_path/*${1:-}*/*${2:-}*/*${3:-}*); fi
+
 unset IFS
 
 printf "%s\n" "${files[@]}" > $playlist_path
