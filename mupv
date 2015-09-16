@@ -6,14 +6,14 @@ command -v mpv >/dev/null 2>&1 || \
 music_path="${HOME}/Music/iTunes/iTunes Media/Music"
 playlist_path="${HOME}/.config/mpv/mu-playlist.txt"
 
-mpv_options=' --no-border --msg-level=vd=error,ffmpeg/video=fatal,ffmpeg/demuxer=fatal'
+mpv_options=' --no-border --input-media-keys=yes --msg-level=vd=error,ffmpeg/video=fatal,ffmpeg/demuxer=fatal'
 is_gui='no'
 is_osc=' --no-osc'
 dimensions='300x300-16+16'
 
 IFS=""
 
-while getopts ":gosftkp:d:m:" opt; do
+while getopts ":gosftkv:p:d:m:" opt; do
   case $opt in
   	g) 	is_gui='attachment';;
 	o)	is_osc=' --osc';;
@@ -21,6 +21,7 @@ while getopts ":gosftkp:d:m:" opt; do
 	f)	mpv_options+=" --ontop";;
 	t)	mpv_options+=" --no-window-dragging";;
 	k)	mpv_options+=" --input-media-keys=no";;
+	v)  mpv_options+=" --screen=$OPTARG";;
 	p)	files=($OPTARG);;
 	d)	dimensions="$OPTARG";;
 	m) 	mpv_options+=" $OPTARG";;
